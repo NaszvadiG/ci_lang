@@ -9,22 +9,14 @@ class Home extends CI_Controller {
 		
 		$data = array(
 			'lid'		=> $this->lang->lang(),
-			'lid_url'	=> $this->uri->segment(1)
+			'lid_url'	=> $this->uri->segment(1),
+			'page_id'  	=> $id
 		);
-		
 		foreach( $this->home_model->getText($id) as $t){
-			
-			$data['title']		= $t->title;
-			$data['content']	= $t->content;
-			
-		  // $data['text'] = $t; 
+			$data['name'] = $t;
 		}
 		
-
 		$this->load->view('home', $data);
-
 	}
-	
-	
 }
 
