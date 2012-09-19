@@ -2,7 +2,7 @@
 
 class Home extends CI_Controller {
 	
-	public function index(){
+	public function show($id){
 
 		$this->lang->load('home');
 		$this->load->model('home_model');
@@ -12,8 +12,13 @@ class Home extends CI_Controller {
 			'lid_url'	=> $this->uri->segment(1)
 		);
 		
-		foreach( $this->home_model->getText() as $t)
-		  $data['text'] = $t->text; 
+		foreach( $this->home_model->getText($id) as $t){
+			
+			$data['title']		= $t->title;
+			$data['content']	= $t->content;
+			
+		  // $data['text'] = $t; 
+		}
 		
 
 		$this->load->view('home', $data);

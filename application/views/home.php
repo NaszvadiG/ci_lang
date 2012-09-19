@@ -19,7 +19,8 @@
 	<p><?= lang('work') ?></p>
 	<p class="color_<?= $lid ?>">current language is: <?= $lid; ?></p>
 	<div>
-	<?php echo $text; ?>
+	<h1><?php echo $title; ?></h1>
+	<p><?php echo $content; ?></p>
 	</div>
 </body>
 </html>
